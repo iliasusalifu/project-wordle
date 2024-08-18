@@ -1,5 +1,7 @@
-import { checkGuess } from '../../game-helpers';
+import React from 'react';
 import { range } from '../../utils';
+import { checkGuess } from '../../game-helpers';
+
 const MAX_LETTERS = 5;
 function Guess({ guess, answer }) {
   if (!guess) {
