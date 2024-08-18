@@ -5,6 +5,7 @@ import { WORDS } from '../../data';
 import WordGrid from '../WordGrid';
 import { NUM_OF_GUESSES_ALLOWED } from '../../constants';
 import Banner from '../Banner';
+import GuessInput from '../GuessInput/GuessInput';
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -37,16 +38,7 @@ function Game() {
     <form onSubmit={handleSubmit} className="guess-input-wrapper">
       <WordGrid guessHistory={guessHistory} answer={answer} />
       <label htmlFor="guess-input">Enter guess:</label>
-      <input
-        id="guess-input"
-        value={guess}
-        onChange={(event) => {
-          setGuess(event.target.value.toUpperCase());
-        }}
-        type="text"
-        pattern="\w{5}"
-        disabled={status !== 'playing'}
-      />
+      <GuessInput guess={guess} setGuess={setGuess} status={status} />
 
       {status === 'won' && (
         <Banner status="happy">
