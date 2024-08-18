@@ -19,11 +19,10 @@ function Game() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log({ guess });
+
     setGuess('');
 
     const nextGuessHistory = [...guessHistory, guess];
-    console.log('nextGuessHistory', nextGuessHistory);
     setGuessHistory(nextGuessHistory);
     if (guess === answer) {
       setStatus('won');
